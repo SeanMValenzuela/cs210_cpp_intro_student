@@ -6,31 +6,58 @@
 // array instead, and as long as push/pop/top/isEmpty/size still behave
 // the same way, nothing calling this class would ever notice.
 
+#include <iostream>
 #include "Stack.h"
 
+Stack::Stack() {
+    topIndex = -1;
+}
+
 void Stack::push(int value) {
-    // TODO: add value to the top of data_ (vector has a method for this)
-    data_.push_back(value);
+    if (isFull()) {
+        std::cout << "Stack is full, cannot push" << std::endl;
+        return;
+    }
+    topIndex++;
+    data[topIndex] = value;
 }
 
-void Stack::pop() {
-    // TODO: if data_ isn't empty, remove the top element
-    data_.pop_back();
+int Stack::pop() {
+    if (isEmpty()) {
+        std::cout << "Stack is empty, cannot pop" << std::endl;
+        return -1;
+    }
+    int value = data[topIndex];
+    topIndex--;
+    return value;
 }
 
-int Stack::top() const {
-    // TODO: return the top element of data_
-    // undefined if empty -- callers should check isEmpty() first. We'll
-    // harden this kind of thing later in the course.
-    return data_.back();
+int Stack::peek() const {
+    if (isEmpty()) {
+        std::cout << "Stack is empty, cannot peek" << std::endl;
+        return -1;
+    }
+    return data[topIndex];
 }
 
 bool Stack::isEmpty() const {
-    // TODO: return whether data_ has zero elements
-    return data_.empty();
+    if (topIndex == -1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool Stack::isFull() const {
+    if (topIndex == 99) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 int Stack::size() const {
-    // TODO: return how many elements are in data_ (cast to int)
-    return data_.size();
+    return topIndex + 1;
 }
+
+
