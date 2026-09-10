@@ -3,7 +3,7 @@
 #include <iostream>
 #include <ostream>
 
-Point::Point():Point(0,0, 0.0) {
+Point::Point():Point(0.0, 0.0) {
     // TODO: this constructor should delegate to Point(0.0, 0.0) instead
     // of having a body at all. Rewrite the line above to read:
     //   Point::Point() : Point(0.0, 0.0) {

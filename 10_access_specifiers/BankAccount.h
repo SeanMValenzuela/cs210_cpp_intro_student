@@ -27,6 +27,7 @@ public:
     // while still keeping it closed off to code outside the hierarchy?
     // Add that keyword (with a colon) on its own line, right above
     // balance_.
+protected:
     double balance_;
 
 private:
