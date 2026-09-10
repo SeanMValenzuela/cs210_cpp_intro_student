@@ -3,7 +3,7 @@
 #### 1. What value does topIndex hold immediately after construction, and why does that specific value make isEmpty() return the right answer with no special-casting?
 topIndex holds the value of -1 immediately after construction. 
 That specific value makes isEmpty() return the right answer with no special casting since there are no valid element indexes below 0. 
-This enables isEmpty() to simply check if topIndex == 1, and return whether it is true or false. 
+This enables isEmpty() to simply check if topIndex == -1, and return whether it is true or false. 
 
 #### 2. Walk through push step by step, in words: what happens to data and topIndex, in what order, and why would swapping that order break the stack?
 When the method push is called, the program first checks if the stack is full using the isFull() method. 
@@ -50,9 +50,9 @@ This behavior was chosen as removing a value is impossible if a stack does not c
 
 #### 6. Your array is fixed at 100 slots. If a caller needed more room than that, what would have to change in your class to support it, and what would it likely cost in terms of the time complexity you gave in question 3?
 If a caller needed more room than 100 slots in a stack, the size of 100 specified in the Stack.h file can simply be changed to a higher value.
-However, that means that the stack's capacity would still be fixed, and not necessarily be arbitrary in size. 
-To have a stack with arbitrary size, a resizable array would need to be implemented in the class, which would likely make methods, such as push, sometimes run in O(n) instead of O(1) as every element would need to be copied from one position to another for example.
+However, that means that the stack's capacity would still be fixed, and not necessarily be dynamic in size. 
+To have a stack with dynamic size, a resizable array would need to be implemented in the class, which would likely make methods, such as push, sometimes run in O(n) instead of O(1) as every element would need to be copied from one position to another for example.
 
 #### 7. Without looking anything up: if this stack were built on a linked list instead of an array, name one advantage and one disadvantage that trade-off would bring, based on what you already know about how arrays and pointers behave differently.
-One advantage of the stack being built on a linked list is that its size would be dynamic rather than being fixed, which helps resolve the problem outlined in question 3.
+One advantage of the stack being built on a linked list is that its size would be dynamic rather than being fixed, which helps resolve the problem outlined in question 6.
 One disadvantage of the stack being built on a linked list is more memory would need to be allocated due to the need for pointers, which connect the nodes in linked lists.
