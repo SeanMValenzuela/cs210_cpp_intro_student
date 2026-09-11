@@ -59,5 +59,3 @@ bool Stack::isFull() const {
 int Stack::size() const {
     return topIndex + 1;
 }
-
-
